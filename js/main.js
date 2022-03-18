@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 const form = document.querySelector('.new-form');
 
-form.classList.remove("collapsed");
+form.classList.remove('collapsed');
 
-const list = document.querySelector(".js-list");
+const list = document.querySelector('.js-list');
 
 // const card1 = "<li class="card">
 // <article>
@@ -16,4 +16,3 @@ const list = document.querySelector(".js-list");
 //   </p>
 // </article>
 // </li>"
-
