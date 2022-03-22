@@ -106,3 +106,13 @@ const cardKitten3 = `<li class="card">
 // Pintamos en el HTML el contenido de las variables
 const cardList2 = cardKitten1 + cardKitten2 + cardKitten3;
 list.innerHTML = cardList2;
+
+const input_search_desc = document.querySelector('.js_in_search_desc');
+input_search_desc.value = 'cariñoso';
+const descrSearchText = input_search_desc.value;
+
+list.classList.add('collapsed');
+
+if (kittenDesc1.includes(descrSearchText)) {
+  list.innerHTML += `${cardKitten1} + ${cardKitten2} + ${cardKitten3}  `;
+}
