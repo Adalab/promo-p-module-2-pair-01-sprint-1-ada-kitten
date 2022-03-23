@@ -59,7 +59,7 @@ let kittenName1 = 'Anastacio';
 // Utilizamos el metodo string toUpperCase para modificar el nombre y convertirlo en mayuscula
 const kittenNameOne = kittenName1.toUpperCase();
 const kittenDesc1 =
-  'Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
+  'Ruiseño, juguetón, le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
 const kittenRace1 = 'British Shorthair';
 
 let kittenImage2 =
@@ -68,7 +68,7 @@ let kittenImageTwo = kittenImage2.slice(8);
 let kittenName2 = 'Fiona';
 kittenName2 = kittenName2.toUpperCase();
 const kittenDesc2 =
-  'Ruiseño, juguetón, le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
+  'Ruiseño, juguetón,  le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
 const kittenRace2 = 'British Shorthair';
 
 let kittenImage3 =
@@ -78,7 +78,7 @@ let kittenName3 = 'Cielo';
 kittenName3 = kittenName3.toUpperCase();
 const kittenDesc3 =
   'Ruiseño, juguetón, le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
-const kittenRace3 = 'British Shorthair';
+const kittenRace3 = '';
 
 const cardKitten1 = `<li class="card">
 <article>
@@ -103,16 +103,30 @@ const cardKitten3 = `<li class="card">
 <p class="card_description" > ${kittenDesc3} </p>
 </li> `;
 
-// Pintamos en el HTML el contenido de las variables
-const cardList2 = cardKitten1 + cardKitten2 + cardKitten3;
-list.innerHTML = cardList2;
-
 const input_search_desc = document.querySelector('.js_in_search_desc');
 input_search_desc.value = 'cariñoso';
 const descrSearchText = input_search_desc.value;
 
-list.classList.add('collapsed');
+//  Si en la descripción del gatito aparece la palabra "cariñoso", incluidmos el gato a la lista de gatos en el HTML ( list.innerHTML)
+// if (kittenDesc1.includes(descrSearchText)) {
+//   list.innerHTML = cardKitten1;
+// }
+// if (kittenDesc2.includes(descrSearchText)) {
+//   list.innerHTML = cardKitten2;
+// }
+// if (kittenDesc3.includes(descrSearchText)) {
+//   list.innerHTML = cardKitten3;
+// }
+// Pintamos en el HTML el contenido de las variables
+const cardList2 = cardKitten1 + cardKitten2 + cardKitten3;
+list.innerHTML = cardList2;
 
-if (kittenDesc1.includes(descrSearchText)) {
-  list.innerHTML += `${cardKitten1} + ${cardKitten2} + ${cardKitten3}  `;
-}
+// if (form.classList.contains('collapsed')) {
+//   form.classList.remove('collapsed');
+// } else {
+//   form.classList.add('collapsed');
+// }
+
+// if (kittenRace3 === '') {
+//   kittenRace3.innerHTML += `<h3 class='card_race'>No se ha especificado la raza</h3>`;
+// }
