@@ -1,6 +1,5 @@
 'use strict';
 const form = document.querySelector('.new-form');
-
 // form.classList.remove('collapsed');
 
 const list = document.querySelector('.js-list');
@@ -44,6 +43,16 @@ const card3 = `<li class="card">
   moleste. Es una maravilla acariciarle!
 </p>
 </li>`;
+
+const nav = document.querySelector('.item');
+
+// Constantes del aptdo. validar formulario nuevo gatito
+const btnAdd = document.querySelector('.js-btn-add');
+
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMesageError = document.querySelector('.js-label-error');
 
 // const cardList = card1 + card2 + card3;
 // list.innerHTML = cardList;
@@ -108,15 +117,15 @@ input_search_desc.value = 'cariñoso';
 const descrSearchText = input_search_desc.value;
 
 //  Si en la descripción del gatito aparece la palabra "cariñoso", incluidmos el gato a la lista de gatos en el HTML ( list.innerHTML)
-// if (kittenDesc1.includes(descrSearchText)) {
-//   list.innerHTML = cardKitten1;
-// }
-// if (kittenDesc2.includes(descrSearchText)) {
-//   list.innerHTML = cardKitten2;
-// }
-// if (kittenDesc3.includes(descrSearchText)) {
-//   list.innerHTML = cardKitten3;
-// }
+if (kittenDesc1.includes(descrSearchText)) {
+  list.innerHTML = cardKitten1;
+}
+if (kittenDesc2.includes(descrSearchText)) {
+  list.innerHTML = cardKitten2;
+}
+if (kittenDesc3.includes(descrSearchText)) {
+  list.innerHTML = cardKitten3;
+}
 // Pintamos en el HTML el contenido de las variables
 const cardList2 = cardKitten1 + cardKitten2 + cardKitten3;
 list.innerHTML = cardList2;
@@ -130,3 +139,32 @@ list.innerHTML = cardList2;
 // if (kittenRace3 === '') {
 //   kittenRace3.innerHTML += `<h3 class='card_race'>No se ha especificado la raza</h3>`;
 // }
+
+// De la constante nav... (Acuérdate '.item'). Si ctrl + clic sobre la palabra nav, ¡te lleva arriba, a la constante!
+nav.addEventListener('click', (event) => {
+  event.preventDefault();
+  form.classList.toggle('collapsed');
+});
+
+function mostrar() {
+  form.classList.remove('collapsed');
+}
+
+if (nav.addEventListener('mouseover', mostrar())) {
+} else {
+  form.classList.add('collapsed');
+}
+
+// Validar formulario nuevo gatito NOS HEMOS QUEDADO AQUÍ 24 MAR
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
+
+btnAdd.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    alert('error');
+    labelMesageError.innerHTML = 'Debe rellenar todos los valores';
+  }
+});
