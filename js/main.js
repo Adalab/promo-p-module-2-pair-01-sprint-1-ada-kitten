@@ -48,11 +48,12 @@ const nav = document.querySelector('.item');
 
 // Constantes del aptdo. validar formulario nuevo gatito
 const btnAdd = document.querySelector('.js-btn-add');
-
 const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
+const inputBreed = document.querySelector('.js-input-breed');
 const labelMesageError = document.querySelector('.js-label-error');
+const btnCancel = document.querySelector('.js-btn-cancel');
 
 // const cardList = card1 + card2 + card3;
 // list.innerHTML = cardList;
@@ -141,30 +142,57 @@ list.innerHTML = cardList2;
 // }
 
 // De la constante nav... (Acuérdate '.item'). Si ctrl + clic sobre la palabra nav, ¡te lleva arriba, a la constante!
-nav.addEventListener('click', (event) => {
-  event.preventDefault();
-  form.classList.toggle('collapsed');
-});
+// nav.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   form.classList.toggle('collapsed');
+// });
 
 function mostrar() {
-  form.classList.remove('collapsed');
-}
-
-if (nav.addEventListener('mouseover', mostrar())) {
-} else {
   form.classList.add('collapsed');
 }
 
-// Validar formulario nuevo gatito NOS HEMOS QUEDADO AQUÍ 24 MAR
-const valueDesc = inputDesc.value;
-const valuePhoto = inputPhoto.value;
-const valueName = inputName.value;
+// Con esto al pasar el raton mostramos el formulario
+
+if (nav.addEventListener('mouseover', mostrar())) {
+} else {
+  // Cerramos el formulario cuando clickamos en el boton de cancelar
+  btnCancel.addEventListener('click', () => {
+    form.classList.add('collapsed');
+  });
+}
 
 btnAdd.addEventListener('click', (event) => {
   event.preventDefault();
-
-  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-    alert('error');
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+  const valueBreed = inputBreed.value;
+  if (
+    valueDesc === '' ||
+    valuePhoto === '' ||
+    valueName === '' ||
+    valueBreed === ''
+  ) {
     labelMesageError.innerHTML = 'Debe rellenar todos los valores';
   }
 });
+
+// Funcion manejadora para evitar el eveto que hay por defecto del formulario
+// Llamamos a una funcion que borra la clase collapses cuando clickamos sobre el '+' de la barra de navegacion
+// Con esto abrimos y cerramos el formulario cuando queremos
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  const add = hideNewCatForm();
+  return add;
+}
+
+function hideNewCatForm() {
+  if (form.classList.contains('collapsed')) {
+    form.classList.remove('collapsed');
+  } else {
+    form.classList.add('collapsed');
+  }
+}
+
+nav.addEventListener('click', handleClickNewCatForm);
