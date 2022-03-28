@@ -161,7 +161,7 @@ if (nav.addEventListener('mouseover', mostrar())) {
   });
 }
 
-btnAdd.addEventListener('click', (event) => {
+/* btnAdd.addEventListener('click', (event) => {
   event.preventDefault();
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
@@ -175,7 +175,7 @@ btnAdd.addEventListener('click', (event) => {
   ) {
     labelMesageError.innerHTML = 'Debe rellenar todos los valores';
   }
-});
+}); */
 
 // Funcion manejadora para evitar el eveto que hay por defecto del formulario
 // Llamamos a una funcion que borra la clase collapses cuando clickamos sobre el '+' de la barra de navegacion
@@ -196,3 +196,50 @@ function hideNewCatForm() {
 }
 
 nav.addEventListener('click', handleClickNewCatForm);
+
+// 28 mar. Crear un gatito en HTML
+function renderKitten(url, desc, name, race) {
+  let card = `<li class="card">
+  <img
+    class="card_img"
+    src="${url}"
+    alt="gatito" />
+  <h3 class="card_title">${name}</h3>
+  <h4 class="card_race">${race}</h4>
+  <p class="card_description">${desc}</p>
+  </li>`;
+  list.innerHTML += card;
+  return list;
+}
+renderKitten(
+  'http://placekitten.com/g/200/300',
+  'El mejor gato del mundo',
+  'Malky',
+  'Común Europeo',
+);
+
+// 28 mar. Adicionar nuevo gatito
+// Modifica el evento para cumplir una función manejadora
+
+function addNewKitten(event) {
+  // Mueve el código que está dentro del evento
+  event.preventDefault();
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+  const valueBreed = inputBreed.value;
+
+  if (
+    valueDesc === '' ||
+    valuePhoto === '' ||
+    valueName === '' ||
+    valueBreed === ''
+  ) {
+    labelMesageError.innerHTML = 'Debe rellenar todos los valores';
+  }
+  return console.log('Malky');
+}
+
+btnAdd.addEventListener('click', addNewKitten);
+
+// 30 marzo
