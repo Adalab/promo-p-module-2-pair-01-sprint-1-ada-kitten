@@ -1,4 +1,4 @@
-# Ejercicio para el pair programming de Gloria y Clara
+# Ejercicio para el pair programming de Cristina y Clara
 
 Hemos creado este ejercicio para que lo hagáis durante la hora de pair programming entre tu compañera y tú. Este ejercicio es incremental, es decir, cada día vamos a ir añadiendo las nuevas funcionalidades que hemos aprendido.
 
